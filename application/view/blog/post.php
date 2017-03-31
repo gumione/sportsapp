@@ -36,7 +36,7 @@
                                 <div class="col-lg-12">
                                     <div class="row">
                                         <div class="col-lg-9">
-                                            <h5 class="media-heading"><?php echo $c->author; ?> <small><?php echo date('d.m.Y, в H:i', $c->date); ?></small></h5>
+                                            <h5 class="media-heading"><strong><?php echo $c->author; ?></strong> <small><?php echo date('d.m.Y, в H:i', $c->date); ?></small></h5>
                                         </div>
                                     </div>
                                     <div class="row">

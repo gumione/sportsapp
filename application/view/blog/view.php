@@ -13,7 +13,8 @@
                                 <div class="col-lg-12">
                                     <div class="row">
                                         <div class="col-lg-9">
-                                            <h5 class="media-heading"><?php echo $p->author; ?> <small><?php echo date('d.m.Y, в H:i', $p->date); ?></small></h5>
+                                            <h5 class="media-heading"><strong><?php echo $p->author; ?></strong> <small><?php echo date('d.m.Y, в H:i', $p->date); ?>
+                                                (<?php echo $p->comments . ' ' . ending($p->comments, ['комментарий', 'комментария', 'комментариев']) ?>)</small></h5>
                                         </div>
                                     </div>
                                     <div class="row">

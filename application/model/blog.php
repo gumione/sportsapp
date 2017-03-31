@@ -4,7 +4,9 @@ class Blog_model extends Model
 {
     public function getAllPosts()
     {
-        $sql = "SELECT * FROM blog ORDER BY date desc";
+        $sql = "SELECT blog.*, COUNT(comments.id) AS comments FROM blog " .
+                "LEFT JOIN comments ON comments.post_id = blog.id " .
+                "GROUP BY comments.post_id ORDER BY date desc";
         
         $query = $this->db->prepare($sql);        
         $query->execute();

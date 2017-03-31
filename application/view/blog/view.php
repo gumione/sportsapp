@@ -1,6 +1,60 @@
+<h2>Блог</h2>
+<?php if (!empty($this['top_posts'])): ?>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <span>Популярное (<?=count($this['top_posts'])?>)</span>
+                </div>
+
+
+
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <?php foreach ($this['top_posts'] as $k => $p): ?>
+                            <div class="item<?php echo ($k == 0) ? ' active' : '' ?>">
+                                <div class="well-lg">
+                                    <div class="post">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-lg-offset-3">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <h5 class="media-heading"><strong><?php echo $p->author; ?></strong> <small><?php echo date('d.m.Y, в H:i', $p->date); ?>
+                                                                (<?php echo $p->comments . ' ' . ending($p->comments, ['комментарий', 'комментария', 'комментариев']) ?>)</small></h5>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <p><?php echo trim_text($p->text, 100); ?></p>
+                                                        <a class="btn btn-success" href="/blog/post/<?php echo $p->id ?>">Читать полностью</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>                    
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Назад</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Вперед</span>
+                    </a>
+                </div>                
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
 <div class="row">
     <div class="col-lg-12">
-        <h2>Блог</h2>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <span>Все записи</span>
@@ -14,7 +68,7 @@
                                     <div class="row">
                                         <div class="col-lg-9">
                                             <h5 class="media-heading"><strong><?php echo $p->author; ?></strong> <small><?php echo date('d.m.Y, в H:i', $p->date); ?>
-                                                (<?php echo $p->comments . ' ' . ending($p->comments, ['комментарий', 'комментария', 'комментариев']) ?>)</small></h5>
+                                                    (<?php echo $p->comments . ' ' . ending($p->comments, ['комментарий', 'комментария', 'комментариев']) ?>)</small></h5>
                                         </div>
                                     </div>
                                     <div class="row">

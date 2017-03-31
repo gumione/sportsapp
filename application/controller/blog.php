@@ -34,6 +34,7 @@ class Blog extends Controller {
 
         $this->loadHelper('text');
         
+        $result['top_posts'] = $this->blog_model->getTopPosts(5);
         $result['all_posts'] = $this->blog_model->getAllPosts($sort, $direction);
 
         $view = $this->loadView('blog/view');

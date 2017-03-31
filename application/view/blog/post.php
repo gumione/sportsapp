@@ -71,7 +71,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">Добавить запись</div>
             <div class="form-wrapper">
-                <form id="add-post" class="form-horizontal well-lg" action="#add-post" method="post" enctype="multipart/form-data">
+                <form id="add-comment" class="form-horizontal well-lg" action="#add-comment" method="post" enctype="multipart/form-data">
                     <?php if (isset($this['action_result'])): ?>
                         <div class="col-lg-offset-2 alert alert-<?php echo $this['action_result']['result']; ?>">
                             <?php echo $this['action_result']['data']; ?>

@@ -45,6 +45,16 @@ class Controller
         }
     }
     
+    //loading the model and assigning to property (by alias if needed)
+    public function loadHelper($helper)
+    {
+        if(file_exists(APP . 'helpers/'. $helper .'.php')) {
+            require_once APP . 'helpers/'. $helper .'.php';
+        } else {
+            throw new Exception("Can't load {$helper} helper");
+        }
+    }
+    
     //assigning a non-existing properties
     public function __set($prop, $val) {
         return $this->{$prop} = $val;
